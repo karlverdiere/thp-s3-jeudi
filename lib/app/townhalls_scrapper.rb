@@ -50,7 +50,7 @@ def scrapping
 	xpath = "/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]"
 	scrapper = Scrapper.new("http://www.annuaire-des-mairies.com/martinique.html", xpath, 972)
 
-	File.open("../../db/emails.JSON","w") do |f|
+	File.open("db/emails.JSON", "w") do |f|
 		f.write(scrapper.start)
 	end
 end
