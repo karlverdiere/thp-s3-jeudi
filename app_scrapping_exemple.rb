@@ -2,13 +2,15 @@
 require "json"
 require "./lib/email_scrapper.rb"
 
-zipcode = 972
-city = "https://www.annuaire-des-mairies.com/martinique.html"
 xpath = "/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]"
 
-srappy_the_1337_scrapper = Scrapper.new(city, xpath, zipcode)
+exemple_zipcode = 972
+exemple_region = "https://www.annuaire-des-mairies.com/martinique.html"
+
+srappy_the_1337_scrapper = Scrapper.new(exemple_region, xpath, exemple_zipcode)
+scrapper2 = Scrapper.new("http://www.annuaire-des-mairies.com/cotes-d-armor.html", xpath, 22)
 
 File.open("./db/emails.JSON","w") do |f|
-	# There is nothing to say about that, i was tired...
-	f.write(srappy_the_1337_scrapper.fetch_dem_in_di_ass.to_json)
+	f.write(srappy_the_1337_scrapper.start.to_json)
+	f.write(scrapper2.start.to_json)
 end
