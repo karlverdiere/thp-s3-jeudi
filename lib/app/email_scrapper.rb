@@ -33,7 +33,7 @@ class Scrapper
 			puts @email_list.push(get_email_webpage(link.gsub("./", "http://annuaire-des-mairies.com/")))
 		end
 		puts "...DONE !"
-		# return @email_list
+		return @email_list
 	end
 
 	# Recupere NOM/CODE POSTAL/EMAIL sur la page de la mairie
@@ -42,7 +42,7 @@ class Scrapper
 		page = Nokogiri::HTML(open(url))
 		town_name = page.xpath("/html/body/div/main/section[1]/div/div/div/h1").text.split(" - ")
 		email = page.xpath(@path).text
-		return h = { [town_name[0]] => email => town_name[1] }
+		return h = { [town_name[0]] => email }
 	end
 end
 
