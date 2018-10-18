@@ -11,8 +11,8 @@ class Scrapper
 		@zipcode = zip_to_regex(String(zipcode)) # Transforme le code en string dans tous les cas
 	end
 
-	# This is, of course, completely useless...
-	def fetch_dem_in_di_ass
+	# Launcher
+	def start
 		get_townhalls_url
 	end
 
